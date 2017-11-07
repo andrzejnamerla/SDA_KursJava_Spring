@@ -19,11 +19,11 @@ public class NewsController {
     @Autowired
     private NewsService newsService;
 
-    @GetMapping("/allNews")
+    @GetMapping
     public ModelAndView getAllNews(){
         ModelAndView modelAndView = new ModelAndView("allNews");
         List<News> allNews = newsService.getAllNews();
-        modelAndView.addObject("news", allNews);
+        modelAndView.addObject("allNews", allNews);
         return modelAndView;
     }
 

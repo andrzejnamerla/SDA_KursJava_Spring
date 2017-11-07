@@ -1,21 +1,29 @@
 package com.sda.springjavapoz4.model;
 
-import java.util.Date;
+
+import org.apache.commons.lang3.StringUtils;
+
+import java.time.LocalDate;
 
 
 public class News {
     private long id;
     private String title;
     private String description;
-    private Date date;
+    private LocalDate date;
     private String smallImgPath;
     private String bigImgPath;
     private User author;
 
-    public News() {
+    public News(int id, String title, String description, LocalDate date, User author) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.date = date;
+        this.author = author;
     }
 
-    public News(long id, String title, String description, Date date, String smallImgPath, String bigImgPath, User author) {
+    public News(long id, String title, String description, LocalDate date, String smallImgPath, String bigImgPath, User author) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -23,6 +31,10 @@ public class News {
         this.smallImgPath = smallImgPath;
         this.bigImgPath = bigImgPath;
         this.author = author;
+    }
+
+    public String getAbbreviateDescription(){
+        return StringUtils.abbreviate(description, 30);
     }
 
     public long getId() {
@@ -49,11 +61,11 @@ public class News {
         this.description = description;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 

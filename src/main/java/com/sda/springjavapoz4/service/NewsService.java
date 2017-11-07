@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +24,12 @@ public class NewsService {
 
     @PostConstruct
     public void init(){
-        //this.newsList.add();
+        this.newsList.add(getExampleNews());
+        this.newsList.add(getExampleNews());
+        this.newsList.add(getExampleNews());
+        this.newsList.add(getExampleNews());
+        this.newsList.add(getExampleNews());
+
     }
 
     public List<News> getAllNews(){
@@ -32,6 +38,12 @@ public class NewsService {
 
     public News getNews(int id){
         return id >= newsList.size() ? null : newsList.get(id);
+    }
+
+    private News getExampleNews(){
+        return new News(1,"Lorem",
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aperiam aut blanditiis, consectetur debitis dolorum exercitationem fugit id molestiae odio odit quasi quo tempora temporibus velit! Amet quia reiciendis sapiente!",
+                LocalDate.now(), usersService.getExampleUser());
     }
 
 }

@@ -1,26 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8"/>
-    <title>allNews</title>
+    <meta charset="UTF-8">
+    <title>news</title>
 </head>
 <body>
-<div class="allNews">
-    <ul>
-        <li th:each="news, iter : ${allNews}" style="list-style-type: none; border: 1px solid black; margin: 20px 0; padding: 10px">
-            <a th:href="'/news/' + ${iter.index}" href="#" style="text-decoration: none">
+<div class="news">
+
             <h1 th:text="${news.title}">
                 Title
             </h1>
             <h6 th:text="${news.author.firstName} + ' ' + ${news.author.lastName} + ' - ' + ${news.date}">
                 Jan Kowalski - 21.06.2017
             </h6>
-            <p th:text="${news.AbbreviateDescription}">
+            <p th:text="${news.description}">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, eius.
             </p>
-            </a>
-        </li>
-    </ul>
+
 </div>
 </body>
 </html>
+
