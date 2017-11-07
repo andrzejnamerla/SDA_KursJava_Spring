@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>user</title>
+</head>
+<body>
+<div class="user">
+    <h1 th:text="${user.firstName} + ' ' + ${user.lastName}">Jan Kowalski</h1>
+    <p th:text="${user.phoneNumber}">Phone Number: 0700</p>
+</div>
+</body>
+</html>

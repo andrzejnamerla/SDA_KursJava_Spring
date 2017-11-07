@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>userTab</title>
+</head>
+<body>
+<div class="userTab">
+    <h1>Tableka</h1>
+    <table>
+        <th:block th:each="user : ${users}">
+            <tr>
+                <td th:text="${user.firstName} + ' ' + ${user.lastName}">...</td>
+                <td th:text="${user.phoneNumber}">...</td>
+            </tr>
+        </th:block>
+    </table>
+    <p> - - - </p>
+</div>
+</body>
+</html>
