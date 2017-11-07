@@ -9,6 +9,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
+/**
+* PathVariable - do wyciagania wartosci ze sciezki
+ * RequestParam - do wyciagania wartosci z queryParameterow (/users?firstName=blabla)
+ * ModelAttribute - do wyciagania danych wysylanych w formularzu (content-type: x-www-form-urlencoded)
+ * RequestBody - do wyciagania danych wysylanych w body (np. content-type: application-json)
+ * */
+
 @Controller
 @RequestMapping("/users")
 public class UsersController {
