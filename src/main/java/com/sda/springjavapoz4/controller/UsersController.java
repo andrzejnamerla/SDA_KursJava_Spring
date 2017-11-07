@@ -4,10 +4,7 @@ import com.sda.springjavapoz4.model.User;
 import com.sda.springjavapoz4.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -18,6 +15,25 @@ public class UsersController {
 
     @Autowired
     private UsersService usersService;
+
+    @PostMapping
+    public String saveUser(@ModelAttribute User user){
+        usersService.addUser(user);
+        return "redirect:/users";
+    }
+
+    @PostMapping(consumes = "application/json")
+    public String saveUserJson(@RequestBody User user){
+        usersService.addUser(user);
+        return "redirect:/users";
+    }
+
+    @GetMapping
+    public ModelAndView getAllUsers(){
+        ModelAndView modelAndView = new ModelAndView("userTab");
+        modelAndView.addObject("users", usersService.getAllUsers());
+        return modelAndView;
+    }
 
     @GetMapping("/{id}")
     public ModelAndView getUser(@PathVariable("id") int id){

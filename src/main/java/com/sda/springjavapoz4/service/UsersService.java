@@ -72,4 +72,12 @@ public class UsersService {
         User user = new User(1, firstNameGenerator.getRandomFirstName(), lastNameGenerator.getRandomLastName(), phoneNumberGenerator.getPhoneNumberName());
         return user;
     }
+
+    public List<User> getAllUsers() {
+        return users;
+    }
+
+    public void addUser(User user){
+        users.add(user);
+    }
 }
