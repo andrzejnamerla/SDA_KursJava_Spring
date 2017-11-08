@@ -2,18 +2,22 @@ package com.sda.springjavapoz4.model;
 
 
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
-
 
 public class News {
     private long id;
     private String title;
     private String description;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
     private String smallImgPath;
     private String bigImgPath;
     private User author;
+
+    public News() {
+    }
 
     public News(int id, String title, String description, LocalDate date, User author) {
         this.id = id;

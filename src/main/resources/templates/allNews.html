@@ -7,21 +7,37 @@
 <body>
 <div class="allNews">
     <ul>
-        <li th:each="news, iter : ${allNews}" style="list-style-type: none; border: 1px solid black; margin: 20px 0; padding: 10px">
+        <li th:each="news, iter : ${allNews}"
+            style="list-style-type: none; border: 1px solid black; margin: 20px 0; padding: 10px">
             <a th:href="'/news/' + ${iter.index}" href="#" style="text-decoration: none">
-            <h1 th:text="${news.title}">
-                Title
-            </h1>
-            <h6 th:text="${news.author.firstName} + ' ' + ${news.author.lastName} + ' - ' + ${news.date}">
-                Jan Kowalski - 21.06.2017
-            </h6>
-            <p th:text="${news.AbbreviateDescription}">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, eius.
-            </p>
+                <h1 th:text="${news.title}">
+                    Title
+                </h1>
+                <h6 th:text="${news.author.firstName} + ' ' + ${news.author.lastName} + ' - ' + ${news.date}">
+                    Jan Kowalski - 21.06.2017
+                </h6>
+                <p th:text="${news.AbbreviateDescription}">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, eius.
+                </p>
             </a>
         </li>
     </ul>
-
 </div>
+
+<div class="form">
+    <form action="/news" method="post">
+        <h2>Title</h2>
+        <input type="text" name="title">
+        <br>
+        <h2>Description</h2>
+        <input type="text" name="description">
+        <br>
+        <h2>Date</h2>
+        <input type="date" name="date">
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
 </body>
 </html>

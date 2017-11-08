@@ -5,9 +5,7 @@ import com.sda.springjavapoz4.model.News;
 import com.sda.springjavapoz4.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -19,6 +17,12 @@ public class NewsController {
     @Autowired
     private NewsService newsService;
 
+    @PostMapping
+    public String saveNews(@ModelAttribute News news) {
+        int indexNews = newsService.addNews(news);
+        return "redirect:/news/" + indexNews;
+    }
+    
     @GetMapping
     public ModelAndView getAllNews(){
         ModelAndView modelAndView = new ModelAndView("allNews");

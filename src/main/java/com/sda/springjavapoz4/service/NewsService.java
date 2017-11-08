@@ -46,4 +46,9 @@ public class NewsService {
                 LocalDate.now(), usersService.getExampleUser());
     }
 
+    public int addNews(News news) {
+        news.setAuthor(usersService.getRandomUser());
+        newsList.add(news);
+        return newsList.size()-1;
+    }
 }

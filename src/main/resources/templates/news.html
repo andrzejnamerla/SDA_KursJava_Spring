@@ -7,15 +7,17 @@
 <body>
 <div class="news">
 
-            <h1 th:text="${news.title}">
-                Title
-            </h1>
-            <h6 th:text="${news.author.firstName} + ' ' + ${news.author.lastName} + ' - ' + ${news.date}">
-                Jan Kowalski - 21.06.2017
-            </h6>
-            <p th:text="${news.description}">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, eius.
-            </p>
+    <h1 th:text="${news.title}">
+        Title
+    </h1>
+    <h6 th:text="${news.author.firstName} + ' ' + ${news.author.lastName} + ' - ' + ${news.date}">
+        Jan Kowalski - 21.06.2017
+    </h6>
+    <p th:text="${news.description}">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, eius.
+    </p>
+
+    <a href="/news">Back</a>
 
 </div>
 </body>

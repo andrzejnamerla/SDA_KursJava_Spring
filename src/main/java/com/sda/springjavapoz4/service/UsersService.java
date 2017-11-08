@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 @Component
@@ -66,6 +67,13 @@ public class UsersService {
             }
         }
         return userList;*/
+    }
+
+    public User getRandomUser(){
+        Random random = new Random();
+        int randomIndex = random.nextInt(users.size());
+        return users.get(randomIndex);
+
     }
 
     public User getExampleUser() {
