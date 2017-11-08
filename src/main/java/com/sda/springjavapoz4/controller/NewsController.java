@@ -19,12 +19,12 @@ public class NewsController {
 
     @PostMapping
     public String saveNews(@ModelAttribute News news) {
-        int indexNews = newsService.addNews(news);
+        int indexNews = newsService.saveNews(news);
         return "redirect:/news/" + indexNews;
     }
-    
+
     @GetMapping
-    public ModelAndView getAllNews(){
+    public ModelAndView getAllNews() {
         ModelAndView modelAndView = new ModelAndView("allNews");
         List<News> allNews = newsService.getAllNews();
         modelAndView.addObject("allNews", allNews);
@@ -32,7 +32,7 @@ public class NewsController {
     }
 
     @GetMapping("/{id}")
-    public ModelAndView getNews(@PathVariable("id") int id){
+    public ModelAndView getNews(@PathVariable("id") int id) {
         ModelAndView modelAndView = new ModelAndView("news");
         News news = newsService.getNews(id);
         modelAndView.addObject("news", news);

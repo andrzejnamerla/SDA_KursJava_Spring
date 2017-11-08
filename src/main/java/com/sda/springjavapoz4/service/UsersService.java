@@ -38,25 +38,17 @@ public class UsersService {
     public void init() {
         usersRepository.save(getExampleUser());
         usersRepository.save(getExampleUser());
-        usersRepository.save(getExampleUser());
-        usersRepository.save(getExampleUser());
-        usersRepository.save(getExampleUser());
-        usersRepository.save(getExampleUser());
-        usersRepository.save(getExampleUser());
-        usersRepository.save(getExampleUser());
-        usersRepository.save(getExampleUser());
-        usersRepository.save(getExampleUser());
 
         usersRepository.findAll().forEach(user -> System.out.println(user));
     }
 
     public User getRandomUser(){
-        return getExampleUser();
+        return usersRepository.findOne((long)1);
 
     }
 
     public User getExampleUser() {
-        User user = new User(1, firstNameGenerator.getRandomFirstName(), lastNameGenerator.getRandomLastName(), phoneNumberGenerator.getPhoneNumberName());
+        User user = new User(firstNameGenerator.getRandomFirstName(), lastNameGenerator.getRandomLastName(), phoneNumberGenerator.getPhoneNumberName());
         return user;
     }
 
@@ -65,10 +57,7 @@ public class UsersService {
     }
 
     public List<User> getUserByFirstName(String firstName){
-
-        return StreamSupport.stream(usersRepository.findAll().spliterator(),false)
-                .filter(user -> user.getFirstName().equals(firstName))
-                .collect(Collectors.toList());
+        return usersRepository.findByFirstName(firstName);
 
         /*List<User> userList = new ArrayList<>();
         for (User user : users) {

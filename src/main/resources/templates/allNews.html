@@ -7,8 +7,7 @@
 <body>
 <div class="allNews">
     <ul>
-        <li th:each="news, iter : ${allNews}"
-            style="list-style-type: none; border: 1px solid black; margin: 20px 0; padding: 10px">
+        <li th:each="news, iter : ${allNews}" style="list-style-type: none; border: 1px solid black; margin: 20px 0; padding: 10px">
             <a th:href="'/news/' + ${iter.index}" href="#" style="text-decoration: none">
                 <h1 th:text="${news.title}">
                     Title
@@ -35,6 +34,10 @@
         <h2>Date</h2>
         <input type="date" name="date">
         <br>
+        <h2>Author</h2>
+        <input type="number" name="author">
+        <br>
+
         <button type="submit">Submit</button>
     </form>
 </div>
